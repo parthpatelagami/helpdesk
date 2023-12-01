@@ -22,7 +22,7 @@ const LanguageDropdown = ({ settings, saveSettings }: Props) => {
   // ** Hook
   const { i18n } = useTranslation()
 
-  const handleLangItemClick = (lang: 'en' | 'fr' | 'ar') => {
+  const handleLangItemClick = (lang: 'en' | 'fr' | 'ar' | 'ja') => {
     i18n.changeLanguage(lang)
   }
 
@@ -34,7 +34,12 @@ const LanguageDropdown = ({ settings, saveSettings }: Props) => {
   return (
     <OptionsMenu
       iconButtonProps={{ color: 'inherit' }}
-      icon={<Icon fontSize='1.625rem' icon='tabler:language' />}
+      icon={
+        <>
+          {i18n.language.toUpperCase()}
+          <Icon fontSize='1.625rem' icon='ri:arrow-down-s-line' />
+        </>
+      }
       menuProps={{ sx: { '& .MuiMenu-paper': { mt: 4.25, minWidth: 130 } } }}
       options={[
         {

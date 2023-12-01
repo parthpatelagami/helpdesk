@@ -19,6 +19,7 @@ import { OptionType, OptionsMenuType, OptionMenuItemType } from './types'
 
 // ** Hook Import
 import { useSettings } from 'src/@core/hooks/useSettings'
+import Button from '@mui/material/Button'
 
 const MenuItemWrapper = ({ children, option }: { children: ReactNode; option: OptionMenuItemType }) => {
   if (option.href) {
@@ -66,9 +67,9 @@ const OptionsMenu = (props: OptionsMenuType) => {
 
   return (
     <>
-      <IconButton aria-haspopup='true' onClick={handleClick} {...iconButtonProps}>
+      <Button sx={{ px: 0, color: 'inherit' }} aria-haspopup='true' onClick={handleClick}>
         {icon ? icon : <Icon icon='tabler:dots-vertical' {...iconProps} />}
-      </IconButton>
+      </Button>
       <Menu
         keepMounted
         anchorEl={anchorEl}

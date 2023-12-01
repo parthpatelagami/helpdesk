@@ -22,6 +22,7 @@ import { useAuth } from 'src/hooks/useAuth'
 
 // ** Type Imports
 import { Settings } from 'src/@core/context/settingsContext'
+import { Button } from '@mui/material'
 
 interface Props {
   settings: Settings
@@ -89,23 +90,28 @@ const UserDropdown = (props: Props) => {
 
   return (
     <Fragment>
-      <Badge
-        overlap='circular'
-        onClick={handleDropdownOpen}
-        sx={{ ml: 2, cursor: 'pointer' }}
-        badgeContent={<BadgeContentSpan />}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }}
-      >
-        <Avatar
-          alt='John Doe'
-          src='/images/avatars/1.png'
-          onClick={handleDropdownOpen}
-          sx={{ width: 38, height: 38 }}
-        />
-      </Badge>
+      <Button sx={{ mr: -5, display: 'flex', alignItems: 'center' }} onClick={handleDropdownOpen}>
+        <Badge
+          overlap='circular'
+          sx={{ ml: 0, cursor: 'pointer' }}
+          badgeContent={<BadgeContentSpan />}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right'
+          }}
+        >
+          <Avatar
+            alt='John Doe'
+            src='/images/avatars/1.png'
+            onClick={handleDropdownOpen}
+            sx={{ width: 38, height: 38 }}
+          />
+        </Badge>
+        <Box sx={{ display: 'flex', ml: 2.5, alignItems: 'flex-start', flexDirection: 'column' }}>
+          <Typography sx={{ fontWeight: 500 }}>John Doe</Typography>
+          <Typography variant='body2'>Admin</Typography>
+        </Box>
+      </Button>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
