@@ -17,7 +17,16 @@ interface Props {
   settings: Settings
   saveSettings: (values: Settings) => void
 }
+/* interface LanguageFlags {
+  [key: string]: string
+}
 
+const languageFlags: LanguageFlags = {
+  EN: 'circle-flags:us',
+  FR: 'circle-flags:fr',
+  AR: 'circle-flags:sa'
+}
+*/
 const LanguageDropdown = ({ settings, saveSettings }: Props) => {
   // ** Hook
   const { i18n } = useTranslation()
@@ -34,12 +43,7 @@ const LanguageDropdown = ({ settings, saveSettings }: Props) => {
   return (
     <OptionsMenu
       iconButtonProps={{ color: 'inherit' }}
-      icon={
-        <>
-          {i18n.language.toUpperCase()}
-          <Icon fontSize='1.625rem' icon='ri:arrow-down-s-line' />
-        </>
-      }
+      icon={<Icon fontSize='1.625rem' icon='tabler:language' />}
       menuProps={{ sx: { '& .MuiMenu-paper': { mt: 4.25, minWidth: 130 } } }}
       options={[
         {

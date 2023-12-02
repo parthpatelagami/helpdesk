@@ -67,9 +67,9 @@ const OptionsMenu = (props: OptionsMenuType) => {
 
   return (
     <>
-      <Button sx={{ px: 0, color: 'inherit' }} aria-haspopup='true' onClick={handleClick}>
+      <IconButton aria-haspopup='true' onClick={handleClick} {...iconButtonProps}>
         {icon ? icon : <Icon icon='tabler:dots-vertical' {...iconProps} />}
-      </Button>
+      </IconButton>
       <Menu
         keepMounted
         anchorEl={anchorEl}
