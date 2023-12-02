@@ -7,6 +7,7 @@ import { BlankLayoutWithAppBarProps } from './types'
 
 // ** AppBar Imports
 import AppBar from 'src/@core/layouts/components/blank-layout-with-appBar'
+import { useSettings } from '../hooks/useSettings'
 
 // Styled component for Blank Layout with AppBar component
 const BlankLayoutWithAppBarWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -18,7 +19,7 @@ const BlankLayoutWithAppBarWrapper = styled(Box)<BoxProps>(({ theme }) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing(5),
-    minHeight: `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
+    height: `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
   },
 
   // For V2 Blank layout pages
@@ -26,23 +27,24 @@ const BlankLayoutWithAppBarWrapper = styled(Box)<BoxProps>(({ theme }) => ({
     display: 'flex',
     overflowX: 'hidden',
     position: 'relative',
-    minHeight: `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
+    height: `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
   }
 }))
 
 const BlankLayoutWithAppBar = (props: BlankLayoutWithAppBarProps) => {
   // ** Props
   const { children } = props
+  const { settings, saveSettings } = useSettings()
 
   return (
     <BlankLayoutWithAppBarWrapper>
-      <AppBar />
+      <AppBar saveSettings={saveSettings} />
       <Box
         className='app-content'
         sx={{
           overflowX: 'hidden',
           position: 'relative',
-          minHeight: theme => `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
+          height: theme => `calc(100vh - ${theme.spacing((theme.mixins.toolbar.minHeight as number) / 4)})`
         }}
       >
         {children}
