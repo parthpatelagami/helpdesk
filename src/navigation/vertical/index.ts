@@ -7,6 +7,10 @@ const navigation = (): VerticalNavItemsType => {
       title: 'Dashboards',
       icon: 'tabler:smart-home',
       path: '/dashboards/crm'
+    },
+    {
+      title: 'Tickets',
+      icon: 'tabler:file'
     }
   ]
 }
