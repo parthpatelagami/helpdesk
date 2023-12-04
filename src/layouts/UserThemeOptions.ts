@@ -26,7 +26,7 @@ const UserThemeOptions = (): ThemeOptions => {
         light: '#4CA1D9',
         main: '#4CA1D9',
         dark: '#4CA1D9',
-        contrastText: '#4CA1D9'
+        contrastText: '#FFF'
       }
     }
     /*
