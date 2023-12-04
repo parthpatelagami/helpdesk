@@ -30,7 +30,7 @@ export type ShortcutsType = {
   url: string
   icon: string
   title: string
-  subtitle: string
+  subtitle?: string
 }
 
 interface Props {

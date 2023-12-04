@@ -14,6 +14,7 @@ import ModeToggler from 'src/@core/layouts/components/shared-components/ModeTogg
 import NotificationDropdown from 'src/@core/layouts/components/shared-components/NotificationDropdown'
 import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown'
 import Autocomplete from '../Autocomplete'
+import ShortcutsDropdown, { ShortcutsType } from 'src/@core/layouts/components/shared-components/ShortcutsDropdown'
 
 interface Props {
   hidden: boolean
@@ -21,7 +22,33 @@ interface Props {
   toggleNavVisibility: () => void
   saveSettings: (values: Settings) => void
 }
-
+const shortcuts: ShortcutsType[] = [
+  {
+    title: 'Create Ticket',
+    url: '/apps/calendar',
+    icon: 'material-symbols:note-add-outline'
+  },
+  {
+    title: 'Create Customer',
+    icon: 'tabler:users',
+    url: '/apps/user/list'
+  },
+  {
+    icon: 'tabler:help',
+    title: 'Create FAQ',
+    url: '/pages/help-center'
+  },
+  {
+    title: 'Send SMS',
+    url: '/apps/roles',
+    icon: 'material-symbols:sms-outline'
+  },
+  {
+    title: 'Send Email',
+    url: '/dashboards/crm',
+    icon: 'ic:outline-email'
+  }
+]
 const AppBarContent = (props: Props) => {
   // ** Props
   const { hidden, settings, saveSettings, toggleNavVisibility } = props
@@ -38,7 +65,7 @@ const AppBarContent = (props: Props) => {
       </Box>
       <Box className='actions-right' sx={{ display: 'flex', alignItems: 'center' }}>
         <LanguageDropdown settings={settings} saveSettings={saveSettings} />
-        <ModeToggler settings={settings} saveSettings={saveSettings} />
+        <ShortcutsDropdown settings={settings} shortcuts={shortcuts} />
         <NotificationDropdown settings={settings} notifications={[]} />
         <UserDropdown settings={settings} />
       </Box>
