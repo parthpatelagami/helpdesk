@@ -51,11 +51,11 @@ const themeConfig: ThemeConfig = {
   // ** Layout Configs
   templateName: 'Helpdesk' /* App Name */,
   layout: 'vertical' /* vertical | horizontal */,
-  mode: 'light' as Mode /* light | dark | semi-dark /*! Note: semi-dark value will only work for Vertical Layout */,
+  mode: 'semi-dark' as Mode /* light | dark | semi-dark /*! Note: semi-dark value will only work for Vertical Layout */,
   direction: 'ltr' /* ltr | rtl */,
   skin: 'default' /* default | bordered */,
   contentWidth: 'full' /* full | boxed */,
-  footer: 'static' /* fixed | static | hidden */,
+  footer: 'hidden' /* fixed | static | hidden */,
 
   // ** Routing Configs
   routingLoader: true /* true | false */,
