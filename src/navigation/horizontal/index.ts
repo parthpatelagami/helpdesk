@@ -25,6 +25,10 @@ const navigation = (): HorizontalNavItemsType => [
     icon: 'clarity:settings-line'
   },
   {
+    title: 'Automation',
+    icon: 'pajamas:earth'
+  },
+  {
     title: 'Reports',
     icon: 'iconoir:reports',
     children: [
