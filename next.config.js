@@ -8,6 +8,10 @@ const path = require('path')
 module.exports = {
   trailingSlash: true,
   reactStrictMode: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  assetPrefix:'http://localhost:3200/',
   webpack: config => {
     config.resolve.alias = {
       ...config.resolve.alias,
