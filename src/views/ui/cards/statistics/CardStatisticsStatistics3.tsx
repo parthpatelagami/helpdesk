@@ -66,13 +66,13 @@ const renderStats = () => {
     <Grid item key={index} xs={12} sm={6} md={2}>
       <Card
         sx={{
-          borderBottom: 'thin solid ' + sale.color,
+          borderBottom: `thin solid ${sale.color}`,
           minHeight: '100%',
           display: 'flex',
           flexDirection: 'column',
           boxShadow: '0 0.25rem 1.125rem rgba(75, 70, 92, 0.1)',
           '&:hover': {
-            borderBottom: 'solid ' + sale.color
+            borderBottom: `solid ${sale.color}`
           }
         }}
       >

@@ -43,7 +43,7 @@ const ApexBarChart = () => {
     },
     legend: {
       position: 'right',
-      markers: { offsetX: -3 },
+      markers: { offsetX: -3, radius: 10 },
       labels: { colors: theme.palette.text.secondary },
       itemMargin: {
         vertical: 10,

@@ -36,7 +36,6 @@ const CrmDashboard = () => {
         <Grid item xs={12}>
           <CardStatistics cards={<CardStatisticsStatistics3 />} />
         </Grid>
-
         <Grid item xs={12} md={5}>
           <ApexDonutChart />
         </Grid>

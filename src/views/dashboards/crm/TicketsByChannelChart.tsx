@@ -38,18 +38,7 @@ const ApexDonutChart = () => {
         vertical: 10,
         horizontal: 10
       },
-      fontSize: '15',
-      formatter: (legend, opts) => {
-        const legendHTML = ` <div style="
-         
-          display: flex;
-          flex-direction: column;
-        ">
-            ${opts.w.globals.series[opts.seriesIndex]}
-            ${legend}</div>
-        `
-        return legendHTML
-      }
+      fontSize: '15'
     },
     plotOptions: {
       pie: {
@@ -61,14 +50,13 @@ const ApexDonutChart = () => {
             },
             value: {
               fontSize: '1.2rem',
-              color: theme.palette.text.secondary,
-              formatter: (val: string) => `${parseInt(val, 10)}`
+              color: theme.palette.text.secondary
             },
             total: {
               show: true,
               fontSize: '1.2rem',
-              label: 'Operational',
-              formatter: () => '31%',
+              label: 'Total',
+              formatter: () => '201',
               color: theme.palette.text.primary
             }
           }

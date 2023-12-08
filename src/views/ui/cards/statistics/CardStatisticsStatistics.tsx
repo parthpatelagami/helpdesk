@@ -65,24 +65,16 @@ const renderStats = () => {
   return data.map((sale: DataType, index: number) => (
     <Grid item xs={6} md={2} key={index}>
       <Box
-        key={index}
         sx={{
           display: 'flex',
-          alignItems: 'center',
-          borderLeftColor: sale.color,
-          borderLeftStyle: 'solid'
+          borderLeft: `4px solid ${sale.color}`, // Combine border styles
+          pl: '1rem',
+          flexDirection: 'column',
+          '&:hover': { boxShadow: '0 0.25rem 1.125rem rgba(75, 70, 92, 0.1)' }
         }}
       >
-        <Box
-          sx={{
-            ml: '1rem',
-            display: 'flex',
-            flexDirection: 'column'
-          }}
-        >
-          <Typography variant='h5'>{sale.stats}</Typography>
-          <Typography variant='body2'>{sale.title}</Typography>
-        </Box>
+        <Typography variant='h5'>{sale.stats}</Typography>
+        <Typography variant='body2'>{sale.title}</Typography>
       </Box>
     </Grid>
   ))

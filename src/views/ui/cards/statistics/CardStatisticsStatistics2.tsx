@@ -24,7 +24,7 @@ interface DataType {
 
 const data: DataType[] = [
   {
-    stats: '1402',
+    stats: '14020',
     title: 'All Tickets',
     color: '#28C76F',
     icon: 'material-symbols:ballot-outline'
@@ -65,30 +65,21 @@ const renderStats = () => {
   return data.map((sale: DataType, index: number) => (
     <Grid item xs={6} md={2} key={index}>
       <Card
-        key={index}
         sx={{
           borderRadius: '2px',
           paddingY: '10px',
-          boxShadow: '0px 0px 0px 1px rgba(75, 70, 92, 0.1)'
+          boxShadow: '0px 0px 0px 1px rgba(75, 70, 92, 0.1)',
+          '&:hover': { boxShadow: '0 0.25rem 1.125rem rgba(75, 70, 92, 0.1)' }
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            borderLeftColor: sale.color,
-            borderLeftStyle: 'solid'
-          }}
-        >
-          <Grid container>
-            <Grid paddingLeft='4px' item xs={12} md={7}>
-              <Typography variant='body2'>{sale.title}</Typography>
-            </Grid>
-            <Grid item xs={12} md={1}></Grid>
-            <Grid item xs={12} md={4}>
-              <Typography variant='h5'>{sale.stats}</Typography>
-            </Grid>
+        <Grid container>
+          <Grid item xs={12} md={8} sx={{ paddingLeft: '1rem', borderLeft: `4px solid ${sale.color}` }}>
+            <Typography variant='body2'>{sale.title}</Typography>
           </Grid>
-        </Box>
+          <Grid item xs={12} md={4} sx={{ paddingRight: '1rem', textAlign: 'right' }}>
+            <Typography variant='h5'>{sale.stats}</Typography>
+          </Grid>
+        </Grid>
       </Card>
     </Grid>
   ))
