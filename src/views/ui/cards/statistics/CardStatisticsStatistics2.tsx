@@ -64,31 +64,37 @@ const data: DataType[] = [
 const renderStats = () => {
   return data.map((sale: DataType, index: number) => (
     <Grid item xs={6} md={2} key={index}>
-      <Box
+      <Card
         key={index}
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          borderLeftColor: sale.color,
-          borderLeftStyle: 'solid'
+          borderRadius: '2px',
+          paddingY: '10px',
+          boxShadow: '0px 0px 0px 1px rgba(75, 70, 92, 0.1)'
         }}
       >
         <Box
           sx={{
-            ml: '1rem',
             display: 'flex',
-            flexDirection: 'column'
+            borderLeftColor: sale.color,
+            borderLeftStyle: 'solid'
           }}
         >
-          <Typography variant='h5'>{sale.stats}</Typography>
-          <Typography variant='body2'>{sale.title}</Typography>
+          <Grid container>
+            <Grid paddingLeft='4px' item xs={12} md={7}>
+              <Typography variant='body2'>{sale.title}</Typography>
+            </Grid>
+            <Grid item xs={12} md={1}></Grid>
+            <Grid item xs={12} md={4}>
+              <Typography variant='h5'>{sale.stats}</Typography>
+            </Grid>
+          </Grid>
         </Box>
-      </Box>
+      </Card>
     </Grid>
   ))
 }
 
-const CardStatisticsStatistics = () => {
+const CardStatisticsStatistics2 = () => {
   return (
     <Card>
       <CardHeader
@@ -109,4 +115,4 @@ const CardStatisticsStatistics = () => {
   )
 }
 
-export default CardStatisticsStatistics
+export default CardStatisticsStatistics2

@@ -20,12 +20,18 @@ import {
   CardStatsHorizontalWithDetailsProps
 } from 'src/@core/components/card-statistics/types'
 
-const CardStatistics = ({ apiData }: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface propsType {
+  apiData?: InferGetStaticPropsType<typeof getStaticProps>
+  cards?: JSX.Element
+}
+
+const CardStatistics = (props: propsType) => {
+  const { apiData, cards } = props
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
         <Grid item xs={12} md={12}>
-          <CardStatisticsStatistics />
+          {cards}
         </Grid>
       </Grid>
     </ApexChartWrapper>
