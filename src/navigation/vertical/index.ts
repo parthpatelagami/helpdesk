@@ -13,7 +13,8 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'mdi:ticket-outline',
       children: [
         {
-          title: 'View All Tickets'
+          title: 'View All Tickets',
+          path: '/tickets/viewalltickets'
         }
       ]
     },
