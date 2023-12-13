@@ -7,7 +7,6 @@ import {
   ListItemText,
   Menu,
   MenuItem,
-  Select,
   TextField,
   Toolbar
 } from "@mui/material";
@@ -84,7 +83,12 @@ const Filtertoolbar = (props: any) => {
             return (
               <ListItem key={filter.id}>
                 <CustomAutocomplete
-                  sx={{width:200}}
+                  sx={{
+                    '&.css-1v3b9y8-MuiFormControl-root-MuiTextField-root .MuiInputBase-root':{
+                      border:"none"
+                    },
+                    width:200
+                  }}
                   multiple
                   limitTags={1}
                   disableCloseOnSelect
@@ -108,7 +112,7 @@ const Filtertoolbar = (props: any) => {
             );
           }else{
             return(
-             <DatePickerWrapper key={filter.id} sx={{width:"100%"}}>
+             <DatePickerWrapper key={filter.id} sx={{width:"100%",marginRight:"10px"}}>
                 <PickersRange popperPlacement={popperPlacement} />
               </DatePickerWrapper>
             );
@@ -119,7 +123,7 @@ const Filtertoolbar = (props: any) => {
           <Button
             size="small"
             onClick={handleClick}
-            startIcon={(<IconButton size='small' title='Clear' aria-label='Clear'>
+            startIcon={(<IconButton size='small' title='Clear' aria-label='Clear' sx={{padding:"0px"}}>
               <Icon fontSize='1.25rem' icon='ic:baseline-plus' />
             </IconButton>)}
           >
