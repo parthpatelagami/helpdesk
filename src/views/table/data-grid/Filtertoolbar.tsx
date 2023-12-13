@@ -71,7 +71,8 @@ const Filtertoolbar = (props: any) => {
       <Box
         sx={{
           display: 'flex',
-          alignItems: "center"
+          alignItems: "center",
+          marginBottom: "20px"
         }}
       >
         {FILTERS.map((filter) => {
@@ -81,7 +82,7 @@ const Filtertoolbar = (props: any) => {
           }
           if(filter.type=='select'){
             return (
-              <ListItem>
+              <ListItem key={filter.id}>
                 <CustomAutocomplete
                   sx={{width:200}}
                   multiple
@@ -107,7 +108,7 @@ const Filtertoolbar = (props: any) => {
             );
           }else{
             return(
-              <DatePickerWrapper>
+             <DatePickerWrapper key={filter.id} sx={{width:"100%"}}>
                 <PickersRange popperPlacement={popperPlacement} />
               </DatePickerWrapper>
             );

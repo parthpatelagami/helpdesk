@@ -52,25 +52,8 @@ const PickersRange = ({ popperPlacement }: { popperPlacement: ReactDatePickerPro
 
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }} className='demo-space-x'>
-      <div>
         <DatePicker
           selectsRange
-          endDate={endDate}
-          selected={startDate}
-          startDate={startDate}
-          id='date-range-picker'
-          onChange={handleOnChange}
-          shouldCloseOnSelect={false}
-          popperPlacement={popperPlacement}
-          customInput={
-            <CustomInput label='Date Range' start={startDate as Date | number} end={endDate as Date | number} />
-          }
-        />
-      </div>
-      <div>
-        <DatePicker
-        selectsRange
-          showTimeSelect
           monthsShown={2}
           endDate={endDateRange}
           selected={startDateRange}
@@ -87,7 +70,6 @@ const PickersRange = ({ popperPlacement }: { popperPlacement: ReactDatePickerPro
             />
           }
         />
-      </div>
     </Box>
   )
 }
