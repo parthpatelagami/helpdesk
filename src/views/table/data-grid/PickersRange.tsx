@@ -51,8 +51,8 @@ const PickersRange = ({ popperPlacement }: { popperPlacement: ReactDatePickerPro
   })
 
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }} className='demo-space-x'>
-        <DatePicker
+    <Box sx={{ display: 'flex', flexWrap: 'wrap' }} >
+        <DatePicker 
           selectsRange
           monthsShown={2}
           endDate={endDateRange}
