@@ -41,6 +41,11 @@ const navigation = (): VerticalNavItemsType => {
           icon: 'mdi-light:email'
         }
       ]
+    },
+    {
+      path: '/kanban',
+      title: 'Kanban',
+      icon: 'mdi:ticket-outline'
     }
   ]
 }

@@ -24,3 +24,16 @@ export type AuthValuesType = {
   setUser: (value: UserDataType | null) => void
   login: (params: LoginParams, errorCallback?: ErrCallbackType) => void
 }
+
+export type Id = string | number
+
+export type Column = {
+  id: Id
+  title: string
+}
+
+export type Row = {
+  id: Id
+  title: string
+  columnId: Id
+}
