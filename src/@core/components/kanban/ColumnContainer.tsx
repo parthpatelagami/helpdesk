@@ -26,7 +26,8 @@ function ColumnContainer(props: ColumnContainerProps) {
 
   const style = {
     transition,
-    transform: CSS.Transform.toString(transform)
+    transform: CSS.Transform.toString(transform),
+    cursor: 'grab'
   }
   if (isDragging) {
     return (
@@ -51,11 +52,12 @@ function ColumnContainer(props: ColumnContainerProps) {
           sx={{
             fontSize: 'md',
             height: '60px',
-            cursor: 'grab',
             fontWeight: 'bold'
           }}
         >
-          {props.column.title}
+          <Typography variant='h5' align='left'>
+            {props.column.title}
+          </Typography>
         </Box>
         <Box
           sx={{

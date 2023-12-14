@@ -24,7 +24,8 @@ function TaskCard({ row }: TaskCardProps) {
 
   const style = {
     transition,
-    transform: CSS.Transform.toString(transform)
+    transform: CSS.Transform.toString(transform),
+    cursor: 'grab'
   }
   if (isDragging) {
     return (
