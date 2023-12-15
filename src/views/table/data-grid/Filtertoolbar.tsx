@@ -7,6 +7,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  Popper,
   TextField,
   Toolbar
 } from "@mui/material";
@@ -19,29 +20,39 @@ import CustomAutocomplete from "src/@core/components/mui/autocomplete";
 import CustomTextField from "src/@core/components/mui/text-field";
 import PickersRange from "./PickersRange";
 import DatePickerWrapper from "src/@core/styles/libs/react-datepicker";
-
+import {useDebounce} from "src/hooks/useDebounce";
 
 const FILTERS = [
+  { id: 3, label: "Filter 3", options: ['filter3-option1', 'filter3-option2', 'filter3-option3', 'filter3-option4'],type:"dfse" },
   { id: 1, label: "Filter 1", options: ['filter1-option', 'filter1-option2', 'filter1-optio3', 'filter1-option4'],type:"select" },
   { id: 2, label: "Filter 2", options: ['filter2-option1', 'filter2-option2', 'filter2-option3', 'filter2-option4'],type:"select" },
-  { id: 3, label: "Filter 3", options: ['filter3-option1', 'filter3-option2', 'filter3-option3', 'filter3-option4'],type:"dfse" },
+  { id: 4, label: "Filter 1", options: ['filter1-option', 'filter1-option2', 'filter1-optio3', 'filter1-option4'],type:"select" },
+  { id: 5, label: "Filter 2", options: ['filter2-option1', 'filter2-option2', 'filter2-option3', 'filter2-option4'],type:"select" },
+  { id: 6, label: "Filter 3", options: ['filter3-option1', 'filter3-option2', 'filter3-option3', 'filter3-option4'],type:"dfse" },
+  { id: 7, label: "Filter 1", options: ['filter1-option', 'filter1-option2', 'filter1-optio3', 'filter1-option4'],type:"select" },
+  { id: 8, label: "Filter 2", options: ['filter2-option1', 'filter2-option2', 'filter2-option3', 'filter2-option4'],type:"select" },
+  { id: 9, label: "Filter 3", options: ['filter3-option1', 'filter3-option2', 'filter3-option3', 'filter3-option4'],type:"dfse" },
 ];
 interface jsonres{
   title?:string;
 
 }
-type JSONArray = jsonres[]
 const Filtertoolbar = (props: any) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedFilters, setSelectedFilters] = useState<any[]>([]);
   const [callfrom, setCallFrom] = useState<any>(null);
-  const [filteroption,setFilteroption]= useState<JSONArray>([]);
+  const [filteroption,setFilteroption]= useState<jsonres[]>([]);
+
   const theme = useTheme()
   const { direction } = theme
   const popperPlacement: ReactDatePickerProps['popperPlacement'] = direction === 'ltr' ? 'bottom-start' : 'bottom-end'
+
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
+  const debouncedFunction = useDebounce(() => {
+    console.log("deboune");
+  }, 500);
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -58,6 +69,9 @@ const Filtertoolbar = (props: any) => {
     }
     setSelectedFilters(updatedFilters);
   };
+  const handlechange=()=>{
+    debouncedFunction();
+  }
   useEffect(()=>{
     axios.get('https://jsonplaceholder.typicode.com/todos').then((res:any)=>{
       setFilteroption(res.data);
@@ -71,7 +85,8 @@ const Filtertoolbar = (props: any) => {
         sx={{
           display: 'flex',
           alignItems: "center",
-          marginBottom: "20px"
+          marginBottom: "20px",
+          width:"50%"
         }}
       >
         {FILTERS.map((filter) => {
@@ -81,14 +96,16 @@ const Filtertoolbar = (props: any) => {
           }
           if(filter.type=='select'){
             return (
-              <ListItem key={filter.id}>
+              <ListItem key={filter.id} sx={{width:"auto"}}>
                 <CustomAutocomplete
                   sx={{
                     '&.css-1v3b9y8-MuiFormControl-root-MuiTextField-root .MuiInputBase-root':{
                       border:"none"
                     },
-                    width:200
+                    width:120
                   }}
+                  onInputChange={handlechange}
+                  componentsProps={{ popper: { style: { width: '400px',paddingLeft:"140px" } } }}
                   multiple
                   limitTags={1}
                   disableCloseOnSelect
@@ -112,14 +129,14 @@ const Filtertoolbar = (props: any) => {
             );
           }else{
             return(
-             <DatePickerWrapper key={filter.id} sx={{width:"100%",marginRight:"10px"}}>
+             <DatePickerWrapper key={filter.id} sx={{padding:"8px 16px 8px 16px"}}>
                 <PickersRange popperPlacement={popperPlacement} />
               </DatePickerWrapper>
             );
           }
           
         })}
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{ mt: 5,padding:"8px 16px 8px 16px" }}>
           <Button
             size="small"
             onClick={handleClick}

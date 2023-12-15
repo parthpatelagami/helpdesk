@@ -11,7 +11,7 @@ import CustomTextField from 'src/@core/components/mui/text-field'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
-import { InputLabel, Select, OutlinedInput, MenuItem, Checkbox, ListItemText, SelectChangeEvent, Menu } from '@mui/material'
+import {  MenuItem, Menu } from '@mui/material'
 
 interface Props {
   value: string
